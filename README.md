@@ -57,7 +57,7 @@ Makefile                 # Developer-friendly commands
 
 ```bash
 # 1) Create venv & install
-python -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 # 2) Run smoke tests (super fast)
