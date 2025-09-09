@@ -1,5 +1,8 @@
 import pytest
 from app.math_utils import add_numbers, divide
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+from app.math_utils import add_numbers, divide
 
 @pytest.mark.smoke
 def test_add_numbers_basic():
