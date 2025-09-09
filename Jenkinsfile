@@ -27,8 +27,12 @@ pipeline {
       parallel {
         stage('Unit & Smoke') {
           steps {
-            sh 'export PYTHONPATH=$PYTHONPATH:$(pwd)'
-            sh '. .venv/bin/activate && pytest tests/unit -n auto --junitxml=test-results/unit.xml --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80'
+            //sh 'export PYTHONPATH=$PYTHONPATH:$(pwd)'
+            
+            sh '''
+            export PYTHONPATH=$(pwd)
+            . .venv/bin/activate && pytest tests/unit -n auto --junitxml=test-results/unit.xml --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80
+            '''
           }
           post {
             always {
