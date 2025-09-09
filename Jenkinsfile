@@ -27,6 +27,7 @@ pipeline {
       parallel {
         stage('Unit & Smoke') {
           steps {
+            export PYTHONPATH=$PYTHONPATH:$(pwd)
             sh '. .venv/bin/activate && pytest tests/unit -n auto --junitxml=test-results/unit.xml --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80'
           }
           post {
