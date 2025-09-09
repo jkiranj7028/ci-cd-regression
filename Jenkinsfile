@@ -30,10 +30,9 @@ pipeline {
             //sh 'export PYTHONPATH=$PYTHONPATH:$(pwd)'
             
             sh '''
-            //export PYTHONPATH=$(pwd)
-            export PYTHONPATH=$PYTHONPATH:$(pwd)
-            //. .venv/bin/activate && 
-            pytest tests/unit -n auto --junitxml=test-results/unit.xml --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80
+            export PYTHONPATH=$(pwd)
+            //export PYTHONPATH=$PYTHONPATH:$(pwd)
+            . .venv/bin/activate && pytest tests/unit -n auto --junitxml=test-results/unit.xml --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80
             '''
           }
           post {
