@@ -34,7 +34,7 @@ jobs:
 
       - name: Run tests (${{ matrix.group }})
         run: |
-          export PYTHONPATH=$(pwd)
+          //export PYTHONPATH=$(pwd)
           case "${{ matrix.group }}" in
             smoke) pytest -m "smoke" -n auto ;;
             unit) pytest tests/unit -n auto --cov=app --cov-report=xml ;;
